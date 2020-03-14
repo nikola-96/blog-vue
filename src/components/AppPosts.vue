@@ -2,7 +2,7 @@
     <div>
         <b-container class="bv-example-row">
             <b-row>
-                <b-col><AppPostList :posts="posts" /></b-col>
+                <b-col><app-post-list :posts="posts" /></b-col>
             </b-row>
         </b-container>
     </div>
@@ -10,7 +10,8 @@
 
 <script>
 import { postService } from '@/services/PostService.js'
-import AppPostList from '@/components/AppPostList'
+
+import AppPostList from './AppPostList'
 
 export default {
     components:{
@@ -18,11 +19,12 @@ export default {
     },
     data(){
         return {
-            posts: []
+            posts:[]
         }
     },
     async created() {
         this.posts = await postService.getAll()
+
     },
     
 }
